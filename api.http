@@ -1,0 +1,22 @@
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+###
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Harry Porter"
+}
+
+###
+PUT http://localhost:3001/books/index1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "The darknight rises"
+}
+
+###
+DELETE http://localhost:3001/books/index1 HTTP/1.1
+Content-Type: application/json
