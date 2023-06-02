@@ -1,3 +1,24 @@
 {
-    "books": []
+  "books": [
+    {
+      "title": "The game changer",
+      "id": 1
+    },
+    {
+      "title": "The game changers",
+      "id": 2
+    },
+    {
+      "title": "The change markers",
+      "id": 3
+    },
+    {
+      "title": "The lions",
+      "id": 4
+    },
+    {
+      "title": "Made men",
+      "id": 5
+    }
+  ]
 }
