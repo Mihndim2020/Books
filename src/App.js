@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
 
