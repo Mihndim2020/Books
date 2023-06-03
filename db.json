@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "title": "The game changer",
+      "title": "The underdogs",
       "id": 1
     },
     {
@@ -17,8 +17,8 @@
       "id": 4
     },
     {
-      "title": "Made men",
-      "id": 5
+      "title": "The secret archives",
+      "id": 6
     }
   ]
 }
