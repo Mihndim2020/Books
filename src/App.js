@@ -7,30 +7,39 @@ import BookList from "./components/BookList";
 function App() {
   const [books, setBooks] = useState([]);
 
-  const createBook =  async(title) => {
-    const response = await axios.post('http://localhost:3001/books', {
-      title
-    }); 
-
-    console.log(response.data);
-    // const updatedBooks = [
-    //   ...books,
-    //   { id: Math.round(Math.random() * 9999), title: title },
-    // ];
-    // setBooks(updatedBooks);
+  const createBook = (title) => {
+    const updatedBooks = [
+      ...books,
+      { id: Math.round(Math.random() * 9999), title: title },
+    ];
+    setBooks(updatedBooks);
   };
 
-  const editBookById = (id, newTitle) => {
+  const fetchBooks = async () => {
+    const response = await axios.get("http://localhost:3001/books");
+    setBooks(response.data);
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  const editBookById = async (id, newTitle) => {
+    const response = await axios.put(`http://localhost:3001/books/${id}`, {
+      title: newTitle,
+    });
+
     const updatedBooks = books.map((book) => {
       if (book.id === id) {
-        return { ...book, title: newTitle };
+        return { ...book, ...response.data }; // Take all key-value pairs and add them to this object, the later properties will override the former...
       }
       return book;
     });
     setBooks(updatedBooks);
   };
 
-  const deleteBookById = (id) => {
+  const deleteBookById = async (id) => {
+    await axios.delete(`http://localhost:3001/books/${id}`);
     const updatetedBooks = books.filter((book) => {
       return book.id !== id;
     });
